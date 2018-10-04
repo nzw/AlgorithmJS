@@ -1,17 +1,16 @@
 'use strict';
 
 class QuickSort {
-
-	constructor(data_max_num ) {
-		let sort = new Array(data_max_num);
+	constructor(data_max_num) {
+		let list = new Array(data_max_num);
 		for (let i = 0; i < data_max_num; i++) {
-			sort[i] = Math.ceil(Math.random()*data_max_num);
+			list[i] = Math.ceil(Math.random()*data_max_num);
 		}
-		console.log('ソート前 =>', sort);
-		this.sort(0, data_max_num - 1, sort);
-		console.log('結果 => ', sort);
+		console.log('ソート前 =>', list);
+		this._sort(0, data_max_num - 1, list);
+		console.log('結果 => ', list);
 	}
-	sort(bottom, top, data) {
+	_sort(bottom, top, data) {
 		let lower = bottom, upper = top;
 		if (bottom >= top) {
 			return;
@@ -37,8 +36,8 @@ class QuickSort {
 		data[bottom] = data[upper];
 		data[upper] = tmp;
 
-		this.sort(bottom, upper - 1, data);
-		this.sort(upper + 1, top, data);
+		this._sort(bottom, upper - 1, data);
+		this._sort(upper + 1, top, data);
 	}
 }
 new QuickSort(10);
