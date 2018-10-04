@@ -1,43 +1,50 @@
 'use strict';
-
+/**
+ * 第一引数(必須): ソートしたい配列をカンマ区切りで渡す
+ * node src/quick_sort.js 1,2,9,8,3,7
+ */ 
 class QuickSort {
-	constructor(data_max_num) {
-		let list = new Array(data_max_num);
-		for (let i = 0; i < data_max_num; i++) {
-			list[i] = Math.ceil(Math.random()*data_max_num);
-		}
-		console.log('ソート前 =>', list);
-		this._sort(0, data_max_num - 1, list);
-		console.log('結果 => ', list);
+	constructor(sort_data, start, end) {
+		console.log('ソート開始 => ', sort_data);
+		this._sort(sort_data, start, end);
+		console.log('ソート完了 => ', sort_data);
 	}
-	_sort(bottom, top, data) {
-		let lower = bottom, upper = top;
-		if (bottom >= top) {
-			return;
-		}
-		let tmp = 0;
-		let center = data[bottom];
-		console.log(`center => ${center}`);
-		while (lower < upper) {
-			while (lower <= upper && data[lower] <= center) {
-				lower++;
-			}
-			while (lower <= upper && data[upper] > center) {
-				upper--;
-			}
-			console.log(`lower(${lower}) : upper(${upper})`);
-			if (lower < upper) {
-				tmp = data[lower];
-				data[lower] = data[upper];
-				data[upper] = tmp;
-			}
-		}
-		tmp = data[bottom];
-		data[bottom] = data[upper];
-		data[upper] = tmp;
+	_sort(data_arr, start, end) {
+		if (start >= end) return;
+		let i     = start;
+		let j     = end;
+		let pivot = parseInt(data_arr[ parseInt((start + end) / 2) ]);
 
-		this._sort(bottom, upper - 1, data);
-		this._sort(upper + 1, top, data);
+		while ( 1 ) {
+			while ( data_arr[i] < pivot ) { ++i; }; // 枢軸以上の値が見つかるまで右方向へ進めていく
+			while ( data_arr[j] > pivot ) { --j; }; // 枢軸以下の値が見つかるまで左方向へ進めていく
+			if (i >= j) break; // 軸が見つかったらソート終了
+			//console.log(`i: data_arr[${i}]:`, data_arr[i]);
+			//console.log(`j: data_arr[${j}]:`, data_arr[j]);
+
+			 // 入れ替え
+			let tmp = data_arr[i];
+			data_arr[i] = data_arr[j];
+			data_arr[j] = tmp;
+			i++;
+			j--;
+		}
+		// 軸の左側をソート
+		if (start < i - 1) {
+			this._sort(data_arr, start, i - 1);
+		}
+		// 軸の右側をソート
+		if (end > j + 1) {
+			this._sort(data_arr, j + 1, end);
+		}
 	}
 }
-new QuickSort(10);
+
+/**
+ * @arg[0]：nodeのpath
+ * @arg[1]：file name
+ * @arg[2]以降：コマンドから渡される引数
+ */
+let sort_data = process.argv[2].split(',');
+let data_len  = parseInt(sort_data.length - 1);
+new QuickSort(sort_data, parseInt(0), data_len);
