@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Binary Search
+ * Bubble Sort
  * node src/BubbleSort.js 2,3,4,5,9,1
  */
 
@@ -10,11 +10,11 @@
 class BubbleSort {
 	constructor(array) {
 		this.array = array;
+		this.hit_count = 0;
 	}
 	bsort() {
 		let array = this.array;
 		let len = array.length;
-		let hit_count = 0;
 		for (let i = 0; i < len; i++) {
 			for (let j = i; j < len; j++) {
 				let val_i = parseInt(array[i]) || array[i];
