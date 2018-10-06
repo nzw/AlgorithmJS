@@ -2,7 +2,7 @@
 
 /**
  * Binary Search
- * node src/BinarySearch.js 
+ * node src/BinarySearch.js 3,4,9,0,99,2,3,1 1
  */
 
 //export default class BinarySearch {
