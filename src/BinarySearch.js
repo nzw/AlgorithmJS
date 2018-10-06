@@ -23,12 +23,14 @@ class BinarySearch {
 		let hit_count   = 0;
 		let i = 0;
 		array.sort((a, b) => {
-			return (Number(a) < Number(b) ? -1 : 1);
+			let _a = Number(a) || a;
+			let _b = Number(b) || b;
+			return ( _a < _b ? -1 : 1);
 		});
 		while (i < array.length) {
 			center = next_center || center;
 			if (max === 1) center = 0;
-			pivot  = parseInt(array[center]);
+			pivot  = parseInt(array[center]) || array[center];
 			this.hit_count = ++i;
 			if (num === pivot) {
 				return true;
@@ -48,7 +50,7 @@ class BinarySearch {
 	}
 }
 let arg1 = process.argv[2].split(',');
-let arg2 = Number(process.argv[3]);
+let arg2 = Number(process.argv[3]) || process.argv[3].toString();
 if (!arg1 && !arg2) return console.log('引数がありません');
 console.log('[' + arg1 + '] から' + arg2,'が存在するか探します');
 let result = new BinarySearch(arg1, arg2);
