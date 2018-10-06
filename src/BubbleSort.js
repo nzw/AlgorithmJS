@@ -2,39 +2,39 @@
 
 /**
  * Binary Search
- * node src/BinarySearch.js 
+ * node src/BubbleSort.js 2,3,4,5,9,1
  */
 
-//export default class BinarySearch {
-//module.exports = class BinarySearch {
-class BinarySearch {
-	constructor(array, num) {
+//export default class BubbleSort {
+//module.exports = class BubbleSort {
+class BubbleSort {
+	constructor(array) {
 		this.array = array;
-		this.num = num;
 	}
-	find() {
+	bsort() {
 		let array = this.array;
-		let num   = this.num;
-		let pivot = 0;
+		let len = array.length;
 		let hit_count = 0;
-		array.sort((a, b) => {
-			return (a < b ? -1 : 1);
-		});
-		for (let i = 0, max = array.length; i < max; i++) {
-			pivot = parseInt(array[parseInt((pivot || array.length) / 2)]);
-			this.hit_count = i;
-			if (num === pivot) return true;
+		for (let i = 0; i < len; i++) {
+			for (let j = i; j < len; j++) {
+				let val_i = parseInt(array[i]) || array[i];
+				let val_j = parseInt(array[j]) || array[j];
+				this.hit_count = i + j + 1;
+				if (val_i > val_j) {
+					array[i] = val_j;
+					array[j] = val_i;
+				}
+			}
 		}
-		return false;
+		return array;
 	}
 	hitCount() {
 		return this.hit_count;
 	}
 }
-let arg1 = process.argv[2].split(',');
-let arg2 = Number(process.argv[3]);
-if (!arg1 && !arg2) return console.log('引数がありません');
-console.log(arg1 + 'から' + arg2,'が存在するか探します');
-let result = new BinarySearch(arg1, arg2);
-console.log(arg2 + ' は' + (result.find() ? '見付かりました。' : '見付かりませんでした'));
-console.log('検索回数は ' + result.hitCount() + ' 回です');
+let arr = process.argv[2].split(',');
+if (!arr) return console.log('引数がありません');
+console.log(arr + ' を昇順にします');
+let list = new BubbleSort(arr);
+console.log('[' + list.bsort() + '] を昇順に並べ替えました');
+console.log('交換回数は ' + list.hitCount() + ' 回です');
