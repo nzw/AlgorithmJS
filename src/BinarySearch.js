@@ -32,7 +32,7 @@ class BinarySearch {
 			if (max === 1) center = 0;
 			pivot  = parseInt(array[center]) || array[center];
 			this.hit_count = ++i;
-			if (num === pivot) {
+			if (pivot === num) {
 				return true;
 			}
 			if (num < pivot) {
