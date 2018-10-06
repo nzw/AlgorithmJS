@@ -35,7 +35,7 @@ class BinarySearch {
 			if (pivot === num) {
 				return true;
 			}
-			if (num < pivot) {
+			if (pivot > num) {
 				next_center = Math.round((center - min) / 2);
 				max = center;
 			} else {
