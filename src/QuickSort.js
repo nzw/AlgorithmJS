@@ -1,7 +1,7 @@
 'use strict';
 /**
  * 第一引数(必須): ソートしたい配列をカンマ区切りで渡す
- * node src/quick_sort.js 1,2,9,8,3,7
+ * node src/QuickSort.js 1,2,9,8,3,7
  */ 
 class QuickSort {
 	constructor(sort_data, start, end) {
@@ -19,8 +19,6 @@ class QuickSort {
 			while ( data_arr[i] < pivot ) { ++i; }; // 枢軸以上の値が見つかるまで右方向へ進めていく
 			while ( data_arr[j] > pivot ) { --j; }; // 枢軸以下の値が見つかるまで左方向へ進めていく
 			if (i >= j) break; // 軸が見つかったらソート終了
-			//console.log(`i: data_arr[${i}]:`, data_arr[i]);
-			//console.log(`j: data_arr[${j}]:`, data_arr[j]);
 
 			 // 入れ替え
 			let tmp = data_arr[i];
@@ -46,5 +44,6 @@ class QuickSort {
  * @arg[2]以降：コマンドから渡される引数
  */
 let sort_data = process.argv[2].split(',');
+if (!sort_data) return console.log('引数がありません');
 let data_len  = parseInt(sort_data.length - 1);
 new QuickSort(sort_data, parseInt(0), data_len);

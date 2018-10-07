@@ -1,4 +1,8 @@
 'use strict';
+/**
+ * 第一引数(必須): ソートしたい配列をカンマ区切りで渡す
+ * node src/QuickSortAuto.js 1,2,9,8,3,7
+ */
 
 class QuickSort {
 	constructor(data_max_num) {
@@ -17,7 +21,6 @@ class QuickSort {
 		}
 		let tmp = 0;
 		let center = data[bottom];
-		console.log(`center => ${center}`);
 		while (lower < upper) {
 			while (lower <= upper && data[lower] <= center) {
 				lower++;
@@ -25,7 +28,6 @@ class QuickSort {
 			while (lower <= upper && data[upper] > center) {
 				upper--;
 			}
-			console.log(`lower(${lower}) : upper(${upper})`);
 			if (lower < upper) {
 				tmp = data[lower];
 				data[lower] = data[upper];
@@ -40,4 +42,6 @@ class QuickSort {
 		this._sort(upper + 1, top, data);
 	}
 }
-new QuickSort(10);
+let data_max = process.argv[2];
+if (!data_max) return console.log('引数がありません');
+new QuickSort(data_max);
