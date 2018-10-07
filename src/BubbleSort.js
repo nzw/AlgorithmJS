@@ -17,10 +17,10 @@ class BubbleSort {
 		let len = array.length;
 		for (let i = 0; i < len; i++) {
 			for (let j = i; j < len; j++) {
-				let val_i = parseInt(array[i]) || array[i];
-				let val_j = parseInt(array[j]) || array[j];
+				let val_i = array[i];
+				let val_j = array[j];
 				this.hit_count = i + j + 1;
-				if (val_i > val_j) {
+				if (this.mod(val_i) > this.mod(val_j)) {
 					array[i] = val_j;
 					array[j] = val_i;
 				}
@@ -30,6 +30,9 @@ class BubbleSort {
 	}
 	hitCount() {
 		return this.hit_count;
+	}
+	mod(data) {
+		return Number(data) || data.trim();
 	}
 }
 let arr = process.argv[2].split(',');
