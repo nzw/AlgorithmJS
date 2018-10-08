@@ -2,6 +2,7 @@
 
 /**
  * Test script
+ * node test/queue.js 3,4,9,0,99,2,3,1 1
  * @list
  * @unshift2
  * @shift2

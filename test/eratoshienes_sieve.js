@@ -2,7 +2,7 @@
 
 /**
  * Test script
- * node src/EratosthenesSieve.js 77
+ * node test/eratosthenes_sieve.js 77
  * @run
  */
 const EratosthenesSieve = require('../src/EratosthenesSieve');

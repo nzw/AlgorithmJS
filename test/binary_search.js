@@ -2,7 +2,7 @@
 
 /**
  * Test script
- * node src/BinarySearch.js 3,4,9,0,99,2,3,1 1
+ * node test/binary_search.js 3,4,9,0,99,2,3,1 1
  * @find
  * @hitCount
  */

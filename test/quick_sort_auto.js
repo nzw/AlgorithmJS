@@ -2,7 +2,7 @@
 
 /**
  * Test script
- * node src/QuickSortAuto.js 100
+ * node test/quick_sort_auto.js 100
  */
 const QuickSortAuto = require('../src/QuickSortAuto');
 

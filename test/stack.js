@@ -2,6 +2,7 @@
 
 /**
  * Test script
+ * node test/stack.js 3,4,9,0,99,2,3,1 1
  * @list
  * @push2
  * @pop2

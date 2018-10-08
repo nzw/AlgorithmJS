@@ -2,7 +2,7 @@
 
 /**
  * Test script
- * node src/QuickSort.js 100, 3.2,19,334,11,0,9
+ * node test/quick_sort.js 100, 3.2,19,334,11,0,9
  */
 /**
  * @arg[0]：nodeのpath

@@ -2,7 +2,7 @@
 
 /**
  * Test script
- * node src/BubbleSort.js 2,3,4,5,9,1
+ * node test/bubble_sort.js 2,3,4,5,9,1
  * @bsort
  * @hitCount
  */

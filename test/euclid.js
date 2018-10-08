@@ -2,7 +2,7 @@
 
 /**
  * Test script
- * node src/Euclid.js 77 22
+ * node test/euclid.js 77 22
  * @run
  */
 
