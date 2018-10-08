@@ -1,9 +1,9 @@
 'use strict';
 /**
- * 第一引数(必須): ソートしたい配列をカンマ区切りで渡す
- * node src/QuickSort.js 1,2,9,8,3,7
- */ 
-class QuickSort {
+ * Quick Sort Auto
+ * リストにおいてピボットと呼ぶ要素を軸に分割を繰り返して整列を行うアルゴリズム
+ */
+module.exports = class QuickSort {
 	constructor(sort_data, start, end) {
 		console.log('ソート開始 => ', sort_data);
 		this._sort(sort_data, start, end);
@@ -37,13 +37,3 @@ class QuickSort {
 		}
 	}
 }
-
-/**
- * @arg[0]：nodeのpath
- * @arg[1]：file name
- * @arg[2]以降：コマンドから渡される引数
- */
-let sort_data = process.argv[2].split(',');
-if (!sort_data) return console.log('引数がありません');
-let data_len  = parseInt(sort_data.length - 1);
-new QuickSort(sort_data, parseInt(0), data_len);

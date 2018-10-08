@@ -7,8 +7,8 @@
  * @shift2
  */
 
-//import Queue from '../src/queue';
-const Queue = require('../src/queue');
+//import Queue from '../src/Queue';
+const Queue = require('../src/Queue');
 
 const arr = new Queue();
 console.log('arr.list() => ', arr.list());

@@ -1,10 +1,11 @@
 'use strict';
 /**
- * 第一引数(必須): ソートしたい配列をカンマ区切りで渡す
- * node src/QuickSortAuto.js 1,2,9,8,3,7
+ * Quick Sort Auto
+ * リストにおいてピボットと呼ぶ要素を軸に分割を繰り返して整列を行うアルゴリズム
+ * このクラスでは、配列を自動で生成するため、配列の指定は不要
  */
 
-class QuickSort {
+module.exports = class QuickSortAuto {
 	constructor(data_max_num) {
 		let list = new Array(data_max_num);
 		for (let i = 0; i < data_max_num; i++) {
@@ -42,6 +43,3 @@ class QuickSort {
 		this._sort(upper + 1, top, data);
 	}
 }
-let data_max = process.argv[2];
-if (!data_max) return console.log('引数がありません');
-new QuickSort(data_max);

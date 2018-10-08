@@ -7,8 +7,8 @@
  * @pop2
  */
 
-//import Stack from '../src/stack';
-const Stack = require('../src/stack');
+//import Stack from '../src/Stack';
+const Stack = require('../src/Stack');
 
 const arr = new Stack();
 

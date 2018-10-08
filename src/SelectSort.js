@@ -2,12 +2,10 @@
 
 /**
  * Select Search
- * node src/SelectSort.js 2,3,4,5,9,1
+ * 配列された要素から、最大値やまたは最小値を探索し配列最後の要素と入れ替えをおこなうアルゴリズム
  */
 
-//export default class SelectSort {
-//module.exports = class SelectSort {
-class SelectSort {
+module.exports = class SelectSort {
 	constructor(array) {
 		this.array = array;
 		this.hit_count = 0;
@@ -41,9 +39,3 @@ class SelectSort {
 		return Number(data) || data.trim();
 	}
 }
-let arr = process.argv[2].split(',');
-if (!arr) return console.log('引数がありません');
-console.log(arr, 'を昇順にします');
-let list = new SelectSort(arr);
-console.log(list.bsort(), 'を昇順に並べ替えました');
-console.log('交換回数は ', list.hitCount(), ' 回です');

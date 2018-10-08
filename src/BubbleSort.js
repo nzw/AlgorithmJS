@@ -2,12 +2,11 @@
 
 /**
  * Bubble Sort
- * node src/BubbleSort.js 2,3,4,5,9,1
+ * 隣り合う要素の大小を比較しながら整列させるアルゴリズム
  */
 
 //export default class BubbleSort {
-//module.exports = class BubbleSort {
-class BubbleSort {
+module.exports = class BubbleSort {
 	constructor(array) {
 		this.array = array;
 		this.hit_count = 0;
@@ -35,9 +34,3 @@ class BubbleSort {
 		return Number(data) || data.trim();
 	}
 }
-let arr = process.argv[2].split(',');
-if (!arr) return console.log('引数がありません');
-console.log(arr + ' を昇順にします');
-let list = new BubbleSort(arr);
-console.log('[' + list.bsort() + '] を昇順に並べ替えました');
-console.log('交換回数は ' + list.hitCount() + ' 回です');

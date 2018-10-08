@@ -3,12 +3,10 @@
 /**
  * エラトステネスふるい
  * ある自然数nまでの素数をすべて求めるための方法
- * node src/EratosthenesSieve.js 77
  */
 
 //export default class EratosthenesSieve {
-//module.exports = class EratosthenesSieve {
-class EratosthenesSieve {
+module.exports = class EratosthenesSieve {
 	constructor(number) {
 		let data = [];
 		for (let i = 0; i < number + 1; i++) {
@@ -42,8 +40,3 @@ class EratosthenesSieve {
 		return result;
 	}
 }
-let number = Number(process.argv[2]);
-if (!number) return console.log('引数がありません');
-console.log(number, 'までの素数');
-let Sieve = new EratosthenesSieve(number);
-console.log(Sieve.run());
